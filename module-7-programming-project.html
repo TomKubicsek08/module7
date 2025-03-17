@@ -1,61 +1,101 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>CMPS 162: Module 7 Programming Project</title>
+<title>CMPS 162: Module 7 Programming Project - Golf Edition</title>
 <style>* { font-family: monospace; }</style>
 <script>
 
 //-----------------//
 // Browser Version //
 //-----------------//
-console.log("Browser Version");
+console.log("🏌️‍♂️ Golf Browser Info");
 
-// 1. Complete the implementation and show the current verstion of your browser
-
-// 2. Paste the output that you receive from the first question
-
+// 1. Show the current version of the browser
+console.log("Browser Version:", navigator.userAgent);
 
 //-----------------//
 // Windows //
 //-----------------//
-console.log("Windows");
+console.log("🏌️‍♂️ Golf Windows");
 
 // 1. Create a way to open a window with the height & width of 500 each
-  
-// 2. Create a way to close a window
+function openGolfWindow() {
+    window.open("https://www.pgatour.com", "GolfWindow", "width=500,height=500");
+}
 
-// 3. Create a button to open a new window with preferences of a toolbar, location is true, no directories, no status
-//.   menubar, scrollbars, not resizable, height/width is 400
+// 2. Create a way to close a window
+var golfWindow;
+function openClosableWindow() {
+    golfWindow = window.open("https://www.golfdigest.com", "GolfDigest", "width=500,height=500");
+}
+function closeGolfWindow() {
+    if (golfWindow) {
+        golfWindow.close();
+    } else {
+        console.log("No golf window is open!");
+    }
+}
+
+// 3. Create a button to open a new window with specific preferences
+function openSpecialGolfWindow() {
+    window.open("https://www.masters.com", "GolfSpecial", 
+    "toolbar=yes,location=yes,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=400,height=400");
+}
 
 //-----------------//
 // History URLS //
 //-----------------//
-console.log("History");
-  
-// 1. Create a function that provides a way to obtain the history of pages visited previously
-  
+console.log(" Golf History");
 
-// 2. Run in Live Server and copy the URL, and then visit www.yahoo.com, www.jeffreyjseaman.com, www.pkwinery.com, www.libertypolespirits.com, www.espn.com
-// Provide how many URLs you have in your history
-  
+// 1. Function to obtain the number of pages visited
+function showGolfHistory() {
+    console.log("Number of pages in history:", history.length);
+}
 
-  //-----------------//
+// 2. Instruction: Visit websites and then check history length
+
+//-----------------//
 // Cookies //
 //-----------------//
-console.log("Cookies");
-  
-// 1. Create a way to identify if cookies are enabled
-  
-// 2. Create a way to set the cookie
-  
-// 3. Create a way to obtain the cookie and display it on the screen
+console.log(" Golf Cookies");
 
+// 1. Check if cookies are enabled
+function checkCookiesEnabled() {
+    if (navigator.cookieEnabled) {
+        console.log("Cookies are enabled! ");
+    } else {
+        console.log("Cookies are disabled! ");
+    }
+}
+
+// 2. Set a cookie with a golf-related value
+function setGolfCookie() {
+    document.cookie = "favoriteGolfer=Bryson Dechambeau; expires=Fri, 31 Dec 2025 23:59:59 UTC; path=/";
+    console.log("Cookie set: favoriteGolfer=Tiger Woods");
+}
+
+// 3. Get and display cookies
+function getGolfCookies() {
+    console.log("Cookies:", document.cookie);
+}
+
+// Run functions
+checkCookiesEnabled();
+setGolfCookie();
+getGolfCookies();
+showGolfHistory();
 
 </script>
 </head>
 <body>
-  See console!
+  <h1>Golf JavaScript Project</h1>
+  <button onclick="openGolfWindow()">Open Golf Window</button>
+  <button onclick="openClosableWindow()">Open Closable Golf Window</button>
+  <button onclick="closeGolfWindow()">Close Golf Window</button>
+  <button onclick="openSpecialGolfWindow()">Open Special Golf Window</button>
+  <button onclick="showGolfHistory()">Show Golf History</button>
+  <button onclick="getGolfCookies()">Get Golf Cookies</button>
 </body>
 </html>
